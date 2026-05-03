@@ -2,63 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | Chinthana</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- NAVBAR -->
 <nav>
   <h2 class="logo">Chinthana</h2>
   <ul>
-    <li><a href="index.html">About</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="education.html">Education</a></li>
     <li><a href="skills.html">Skills</a></li>
     <li><a href="certifications.html">Certifications</a></li>
-    <li><a href="achievements.html">Achievements</a></li>
+    <li><a href="achievements.html">Hackathon</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
 
-<!-- PROJECTS SECTION -->
-<div class="container">
-  <h2 class="section-title">Projects</h2>
-
-  <!-- PROJECT CARD -->
-  <div class="card">
-    <h3>Automated Resume Screening System</h3>
-    <p>
-      A web-based application that automatically analyzes resumes and
-      filters candidates based on skills and keywords, reducing manual effort
-      in recruitment.
-    </p>
-
-    <p><strong>Key Features:</strong></p>
-    <ul style="margin-left:20px; color:#a0a6b8;">
-      <li>Resume upload and parsing</li>
-      <li>Keyword-based screening</li>
-      <li>Candidate ranking</li>
-      <li>Simple and user-friendly interface</li>
-    </ul>
-
-    <p style="margin-top:15px;">
-      <strong>Tools & Technologies:</strong><br>
-      Python, Flask, HTML, CSS, SQLite
-    </p>
+<main class="container">
+  <div class="page-header">
+    <p class="welcome-tag">CASE STUDIES</p>
+    <h2 class="section-title">Projects & Experiments</h2>
+    <p class="section-subtitle">A curated list of practical systems built to solve real-world campus and hiring workflows.</p>
   </div>
 
-  <!-- YOU CAN ADD MORE PROJECTS BELOW -->
-  <!--
-  <div class="card">
-    <h3>Project Name</h3>
-    <p>Project description</p>
-  </div>
-  -->
+  <div class="project-modern-grid">
+    <article class="card project-modern">
+      <h3>Automated Resume Screening System</h3>
+      <p>
+        A web-based application that automatically analyzes resumes and filters candidates based on
+        skills and keywords, reducing manual effort in recruitment.
+      </p>
+      <p><strong>Key Features:</strong></p>
+      <ul class="project-list">
+        <li>Resume upload and parsing</li>
+        <li>Keyword-based screening</li>
+        <li>Candidate ranking</li>
+        <li>Simple and user-friendly interface</li>
+      </ul>
+      <p><strong>Tools & Technologies:</strong></p>
+      <div class="tag-list">
+        <span>Python</span><span>Flask</span><span>HTML</span><span>CSS</span><span>SQLite</span>
+      </div>
+    </article>
 
-</div>
+    <article class="card project-modern">
+      <h3>Campus Facility Management System</h3>
+      <p>
+        A web-based application that helps manage campus facilities by allowing students to report
+        issues and enabling administrators to assign and track maintenance tasks efficiently,
+        reducing manual effort and improving response time.
+      </p>
+      <p><strong>Key Features:</strong></p>
+      <ul class="project-list">
+        <li>Complaint submission by students</li>
+        <li>Admin dashboard for monitoring and task assignment</li>
+        <li>Maintenance team task updates and status tracking</li>
+        <li>Real-time complaint tracking and notifications</li>
+        <li>User-friendly and role-based interface</li>
+      </ul>
+      <p><strong>Tools & Technologies:</strong></p>
+      <div class="tag-list">
+        <span>Python</span><span>FastAPI</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PostgreSQL</span>
+      </div>
+    </article>
+  </div>
+</main>
 
 <footer>© 2026 Chinthana A</footer>
-
 </body>
 </html>
