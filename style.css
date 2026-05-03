@@ -1,11 +1,14 @@
 :root {
   --bg: #eadcfb;
   --card: #f7f2ff;
-  --text: #2a1547;
+--text: #170f23;
   --muted: #4c376a;
   --accent: #924dbf;
-  --heading: #1d1033;
+--heading: #0d071a;
   --line: #c9b3e4;
+  --glass-bg: rgba(255, 255, 255, 0.24);
+  --glass-line: rgba(255, 255, 255, 0.68);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
 }
 
 * {
@@ -21,9 +24,10 @@ html {
 
 body {
   background:
-    radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.72) 0%, transparent 28%),
-    radial-gradient(circle at 84% 85%, rgba(178, 138, 234, 0.35) 0%, transparent 32%),
-    linear-gradient(165deg, #f5efff 0%, #e5d7f7 45%, #ceb1eb 100%);
+    radial-gradient(circle at 18% 10%, rgba(255, 255, 255, 0.82) 0%, transparent 25%),
+    radial-gradient(circle at 85% 84%, rgba(102, 239, 255, 0.24) 0%, transparent 30%),
+    radial-gradient(circle at 65% 72%, rgba(193, 146, 255, 0.22) 0%, transparent 28%),
+    linear-gradient(160deg, #f7f4ff 0%, #d8d9ea 52%, #b0bfd4 100%);
   color: var(--text);
   line-height: 1.55;
 }
@@ -33,17 +37,20 @@ nav {
   top: 0;
   width: min(1180px, 94%);
   margin: 16px auto 0;
-  background: rgba(255, 255, 255, 0.32);
+  background: var(--glass-bg);
   border-radius: 14px;
   padding: 14px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  box-shadow: 0 6px 14px rgba(111, 80, 146, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px) saturate(120%);
-  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    0 10px 24px rgba(62, 70, 109, 0.18),
+    0 0 18px rgba(84, 246, 255, 0.35);
+  border: 1px solid var(--glass-line);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
 }
 
 nav ul {
@@ -186,11 +193,7 @@ nav a:hover {
   font-size: 13px;
 }
 
-.social-inline {
-  margin-top: 16px;
-  color: var(--muted);
-  font-size: 14px;
-}
+.social-inline {\n  margin-top: 16px;\n  color: var(--text);\n  font-size: 14px;\n}
 
 .clean-quick {
   border: 1px solid var(--line);
@@ -217,15 +220,16 @@ nav a:hover {
   border-radius: 8px;
   color: var(--text);
   text-decoration: none;
-  border: 1px solid var(--line);
-  background: #efe5fb;
+  border: 1px solid var(--glass-line);
+  background: rgba(255, 255, 255, 0.3);
   transition: all 0.2s ease;
 }
 
 .quick-grid a:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: rgba(153, 116, 255, 0.85);
+  color: #2d1751;
   transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(106, 235, 252, 0.35);
 }
 
 .page-header {
@@ -298,22 +302,41 @@ h1, h2, h3 {
 .btn {
   display: inline-block;
   padding: 12px 22px;
-  background: var(--accent);
+  background: linear-gradient(120deg, rgba(146, 77, 191, 0.95), rgba(103, 165, 255, 0.95));
   color: #fff;
-  border-radius: 6px;
+  border-radius: 999px;
   text-decoration: none;
   font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 0 16px rgba(161, 120, 255, 0.45);
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.33);
+  background: var(--glass-bg);
   padding: 25px;
   border-radius: 12px;
   margin-bottom: 20px;
-  box-shadow: 0 6px 14px rgba(90, 60, 128, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(16px) saturate(125%);
-  -webkit-backdrop-filter: blur(16px) saturate(125%);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    0 12px 26px rgba(57, 67, 97, 0.18),
+    0 0 18px rgba(176, 147, 255, 0.22);
+  border: 1px solid var(--glass-line);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.34), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(104, 235, 255, 0.16), transparent 30%);
+  pointer-events: none;
 }
 
 .skills-grid {
@@ -498,6 +521,7 @@ h1, h2, h3 {
 .project-modern:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(146, 118, 255, 0.3);
 }
 
 .tag-list {
@@ -583,11 +607,7 @@ h1, h2, h3 {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  color: var(--muted);
-}
+footer {\n  text-align: center;\n  padding: 20px;\n  color: var(--text);\n}
 
 /* Certifications page — lighter palette (#9E7ECB … #924DBF) */
 body.certifications-page {
@@ -616,9 +636,12 @@ body.certifications-page nav h2 {
 }
 
 body.certifications-page .hackathon-card {
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.36);
-  box-shadow: 0 8px 18px rgba(74, 37, 122, 0.1);
+  border: 1px solid var(--glass-line);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    0 10px 22px rgba(62, 70, 109, 0.18),
+    0 0 16px rgba(88, 230, 255, 0.2);
 }
 
 body.certifications-page .hackathon-card .hackathon-content {
@@ -667,12 +690,15 @@ body.certifications-page footer {
 }
 
 .contact-top-item {
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid var(--glass-line);
+  background: rgba(255, 255, 255, 0.26);
   border-radius: 14px;
   padding: 14px 16px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    0 0 14px rgba(122, 236, 255, 0.2);
 }
 
 .contact-top-label {
@@ -683,19 +709,18 @@ body.certifications-page footer {
   font-weight: 700;
 }
 
-.contact-top-value {
-  font-size: 24px;
-  font-weight: 700;
-  color: #241738;
-}
+.contact-top-value {\n  font-size: 18px;\n  font-weight: 500;\n  color: var(--text);\n}
 
 .contact-social-panel {
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.24);
+  border: 1px solid var(--glass-line);
+  background: rgba(255, 255, 255, 0.22);
   border-radius: 18px;
   padding: 14px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    0 0 18px rgba(182, 142, 255, 0.25);
 }
 
 .contact-social-grid {
@@ -713,14 +738,15 @@ body.certifications-page footer {
   border-radius: 12px;
   text-decoration: none;
   color: var(--heading);
-  border: 1px solid rgba(255, 255, 255, 0.82);
-  background: rgba(255, 255, 255, 0.36);
+  border: 1px solid var(--glass-line);
+  background: rgba(255, 255, 255, 0.28);
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .contact-social-item:hover {
   transform: translateY(-2px);
-  border-color: rgba(146, 77, 191, 0.5);
+  border-color: rgba(146, 77, 191, 0.65);
+  box-shadow: 0 0 15px rgba(98, 232, 255, 0.35);
 }
 
 .contact-social-item img {
@@ -793,3 +819,4 @@ body.certifications-page footer {
     font-size: 18px;
   }
 }
+/* Perf optimization */\nimg {\n  content-visibility: auto;\n  contain-intrinsic-size: 300px 400px;\n}
